@@ -16,6 +16,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lervag/vimtex'			" LaTeX integration
 call plug#end()
 
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.colnr = 'c:'
 " Theme configuration
 let g:airline_powerline_fonts = 1
 colorscheme gruvbox
