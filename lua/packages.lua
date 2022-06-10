@@ -44,7 +44,12 @@ return require('packer').startup(function(use)
 				'rafamadriz/friendly-snippets'
 			}
 		},
-
+		{
+			'windwp/nvim-autopairs',
+			config = function ()
+				require("nvim-autopairs").setup {}
+			end
+		},
 		{
 			'hrsh7th/nvim-cmp',
 			requires = {
@@ -67,7 +72,7 @@ return require('packer').startup(function(use)
 					mapping = cmp.mapping.preset.insert({
 						['<C-b>'] = cmp.mapping.scroll_docs(-4),
 						['<C-f>'] = cmp.mapping.scroll_docs(4),
-						['<C_Space>'] = cmp.mapping.complete(),
+						['<C-Space>'] = cmp.mapping.complete(),
 						['<C-e>'] = cmp.mapping.abort(),
 						['<TAB>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
 					}),
@@ -84,6 +89,6 @@ return require('packer').startup(function(use)
 
 
   if packer_bootstrap then
-    require('packer').sync()
+	require('packer').sync()
   end
 end)
