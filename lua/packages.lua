@@ -38,7 +38,13 @@ return require('packer').startup(function(use)
 				}
 			end
 		},
-		{ 'L3MON4D3/LuaSnip' },
+		{
+			'L3MON4D3/LuaSnip',
+			requires = {
+				'rafamadriz/friendly-snippets'
+			}
+		},
+
 		{
 			'hrsh7th/nvim-cmp',
 			requires = {
@@ -63,7 +69,7 @@ return require('packer').startup(function(use)
 						['<C-f>'] = cmp.mapping.scroll_docs(4),
 						['<C_Space>'] = cmp.mapping.complete(),
 						['<C-e>'] = cmp.mapping.abort(),
-						['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
+						['<TAB>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
 					}),
 					sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },
