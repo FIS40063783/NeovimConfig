@@ -1,3 +1,3 @@
 require('packages')
+require('settings')
 require('keymaps')
-require('lsp/cmp')
