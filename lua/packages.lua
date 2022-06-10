@@ -7,14 +7,29 @@ end
 return require('packer').startup(function(use)
 	-- Packer can manage itself as an optional plugin
 	use { 'wbthomason/packer.nvim', opt = true }
+	use {
+	      {
+		      'neovim/nvim-lspconfig',
+		      after = 'nvim-lsp-installer',
+		      config = function()
+			      local lspconfig = require("lspconfig")
+			      lspconfig.sumneko_lua.setup {}
+		      end
+	      },
+		{
+		      'williamboman/nvim-lsp-installer',
+		      config = function()
+			      require("nvim-lsp-installer").setup {}
+		      end
+	      }
+	}
 
 	-- Completion
 	use {'hrsh7th/nvim-cmp',
-		requires = { 'neovim/nvim-lspconfig',
-				'hrsh7th/cmp-nvim-lsp',
+		requires = {	'hrsh7th/cmp-nvim-lsp',
 				'hrsh7th/cmp-buffer',
 				'hrsh7th/cmp-path',
-			}
+			},
 		}
 	-- snippets
 	use {'saadparwaiz1/cmp_luasnip',
