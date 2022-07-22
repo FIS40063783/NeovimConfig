@@ -1,3 +1,3 @@
-require('packages')
-require('settings')
+require('core.packages')
+require('core.settings')
 require('core.keymaps')
