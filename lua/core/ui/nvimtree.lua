@@ -9,7 +9,20 @@ local tree_opts = {
 		enable = true,
 		auto_open = true
 	},
-	
+	sort_by = 'case_sensitive',
+	diagnostics = {
+		enable = true,
+		icons = {
+			warning = "",
+			error = "",
+			info = "",
+			hint = ""
+		},
+		git = {
+			enable = true,
+			
+		}
+	}
 }
 
 function M.config()
